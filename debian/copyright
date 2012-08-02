@@ -1,0 +1,16 @@
+Format: Format: http://dep.debian.net/deps/dep5
+Name: bear
+Maintainer: Nobuhiro Iwamatsu <iwamatsu@debian.org>
+Source: https://github.com/eproxus/meck.git
+
+Files: *
+Copyright: Copyright 2011 Adam Lindberg & Erlang Solutions Ltd.
+License: Apache-2.0
+
+Files: debian/*
+Copyright: Copyright 2012, Nobuhiro Iwamatsu <iwamatsu@debian.org>
+License: Apache-2.0
+
+License: Apache-2.0
+ On Debian systems, the full text of the Apache License (Version 2.0)
+ can be found in the file  `/usr/share/common-licenses/Apache-2.0' file.
