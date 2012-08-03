@@ -7,6 +7,8 @@ Homepage: https://github.com/eproxus/meck
 Build-Depends: debhelper (>= 9), dpkg-dev (>= 1.16.1~), erlang-dev,
 	erlang-base (>= 1:15.b.1-dfsg) | erlang-base-hipe (>= 1:15.b.1-dfsg),
 	erlang-crypto, erlang-syntax-tools, erlang-tools, rebar
+Vcs-Git: git://anonscm.debian.org/pkg-leofs/erlang-mech.git
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=pkg-leofs/erlang-mech.git
 
 Package: erlang-mech
 Architecture: any
