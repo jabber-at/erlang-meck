@@ -3,7 +3,7 @@
 DPKG_EXPORT_BUILDFLAGS = 1
 include /usr/share/dpkg/buildflags.mk
 
-PACKAGE=mech
+PACKAGE=meck
 VERSION = $(shell dpkg-parsechangelog | grep ^Version | cut -d" " -f2 | cut -d"-" -f1)
 
 %:

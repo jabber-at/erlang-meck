@@ -1,5 +1,5 @@
 Format: Format: http://dep.debian.net/deps/dep5
-Name: bear
+Name: erlang-meck
 Maintainer: Nobuhiro Iwamatsu <iwamatsu@debian.org>
 Source: https://github.com/eproxus/meck.git
 
