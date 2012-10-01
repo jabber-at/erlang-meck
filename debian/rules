@@ -4,7 +4,7 @@ DPKG_EXPORT_BUILDFLAGS = 1
 include /usr/share/dpkg/buildflags.mk
 
 PACKAGE=meck
-VERSION = $(shell dpkg-parsechangelog | grep ^Version | cut -d" " -f2 | cut -d"-" -f1)
+VERSION = $(shell dpkg-parsechangelog | sed -rne 's/^Version: ([0-9.]+)(\+dfsg)?.*$$/\1/p')
 
 %:
 	dh $@
@@ -16,3 +16,10 @@ override_dh_auto_install:
 		$(CURDIR)/debian/erlang-$(PACKAGE)/usr/lib/erlang/lib/$(PACKAGE)-$(VERSION)/ebin
 	install -m 644 ebin/* \
 		$(CURDIR)/debian/erlang-$(PACKAGE)/usr/lib/erlang/lib/$(PACKAGE)-$(VERSION)/ebin/
+
+override_dh_gencontrol-arch:
+	erlang-depends -a
+	dh_gencontrol -a
+
+override_dh_compress-arch:
+	dh_compress -X.erl -X.beam

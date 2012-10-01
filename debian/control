@@ -3,10 +3,10 @@ Maintainer: Nobuhiro Iwamatsu <iwamatsu@debian.org>
 Section: devel
 Priority: optional
 Standards-Version: 3.9.3
+Build-Depends: debhelper (>= 9), dpkg-dev (>= 1.16.1~), 
+	debhelper (>= 9), dpkg-dev (>= 1.16.1~), erlang-dev (>= 1:13.b.4),
+	erlang-eunit, rebar
 Homepage: https://github.com/eproxus/meck
-Build-Depends: debhelper (>= 9), dpkg-dev (>= 1.16.1~), erlang-dev,
-	erlang-base (>= 1:15.b.1-dfsg) | erlang-base-hipe (>= 1:15.b.1-dfsg),
-	erlang-crypto, erlang-syntax-tools, erlang-tools, rebar
 Vcs-Git: git://anonscm.debian.org/pkg-leofs/erlang-meck.git
 Vcs-Browser: http://anonscm.debian.org/gitweb/?p=pkg-leofs/erlang-meck.git
 
@@ -19,7 +19,7 @@ Depends: ${misc:Depends}, ${shlibs:Depends},
 	erlang-crypto, erlang-syntax-tools,
 	erlang-tools, erlang-dev
 Enhances: erlang
-Description: mocking framework for Erlang
+Description: mocking library for Erlang
  With meck you can easily mock modules in Erlang.
  You can also perform some basic validations on the mocked modules, such as
  making sure no unexpected exceptions occurred or looking at the call history.
