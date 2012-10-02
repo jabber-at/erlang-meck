@@ -15,9 +15,7 @@ Architecture: any
 Section: devel
 Priority: optional
 Depends: ${misc:Depends}, ${shlibs:Depends},
-	erlang-base (>= 1:13.b.4-dfsg) | erlang-base-hipe (>= 1:13.b.4-dfsg),
-	erlang-crypto, erlang-syntax-tools,
-	erlang-tools, erlang-dev
+	erlang-base-hipe | erlang-base | ${erlang-abi:Depends}, ${erlang:Depends}
 Enhances: erlang
 Description: mocking library for Erlang
  With meck you can easily mock modules in Erlang.
