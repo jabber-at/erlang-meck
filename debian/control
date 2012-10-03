@@ -1,5 +1,6 @@
 Source: erlang-meck
-Maintainer: Nobuhiro Iwamatsu <iwamatsu@debian.org>
+Maintainer: LeoFS maintainers team <pkg-leofs-devel@lists.alioth.debian.org>
+Uploaders: Taku YASUI <tach@debian.org>, Nobuhiro Iwamatsu <iwamatsu@debian.org>
 Section: devel
 Priority: optional
 Standards-Version: 3.9.3
