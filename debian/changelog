@@ -1,5 +1,5 @@
 erlang-meck (0.7.2-1) unstable; urgency=low
 
-  * Initial release.
+  * Initial release. (Closes: ##689553)
 
  -- Nobuhiro Iwamatsu <iwamatsu@debian.org>  Fri, 03 Aug 2012 01:35:55 +0900
