@@ -9,6 +9,9 @@ VERSION = $(shell dpkg-parsechangelog | sed -rne 's/^Version: ([0-9.]+)(\+dfsg)?
 %:
 	dh $@
 
+override_dh_auto_test:
+	HOME=/tmp rebar eunit -vv
+
 override_dh_auto_install:
 	dh_auto_install
 
