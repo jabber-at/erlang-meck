@@ -1,3 +1,10 @@
+erlang-meck (0.7.2-3) unstable; urgency=low
+
+  * Fix FTBFS with Erlang/OTP R16. (Closes: #713530)
+    Add patches/0001-Remove-parametrized-module-test.patch.
+
+ -- Nobuhiro Iwamatsu <iwamatsu@debian.org>  Mon, 01 Jul 2013 12:55:36 +0900
+
 erlang-meck (0.7.2-2) unstable; urgency=low
 
   * Update debian/rules.
