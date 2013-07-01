@@ -1,7 +1,11 @@
 erlang-meck (0.7.2-3) unstable; urgency=low
 
+  * Update debian/control.
+    Update Standards-Version to 3.9.4.
   * Fix FTBFS with Erlang/OTP R16. (Closes: #713530)
     Add patches/0001-Remove-parametrized-module-test.patch.
+  * Add debian/watch.
+    Thanks to Bart Martens <bartm@debian.org>.
 
  -- Nobuhiro Iwamatsu <iwamatsu@debian.org>  Mon, 01 Jul 2013 12:55:36 +0900
 
