@@ -13,8 +13,6 @@ Vcs-Browser: http://anonscm.debian.org/gitweb/?p=pkg-leofs/erlang-meck.git
 
 Package: erlang-meck
 Architecture: any
-Section: devel
-Priority: optional
 Depends: ${misc:Depends}, ${shlibs:Depends},
 	erlang-base-hipe | erlang-base | ${erlang-abi:Depends}, ${erlang:Depends}
 Enhances: erlang
