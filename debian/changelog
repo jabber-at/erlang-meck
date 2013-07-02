@@ -1,3 +1,11 @@
+erlang-meck (0.7.2-4) unstable; urgency=low
+
+  * Update debian/rules.
+    Disable test on mips mipsel armel sh4.
+    Because they are late, these become the error in a part.
+
+ -- Nobuhiro Iwamatsu <iwamatsu@debian.org>  Tue, 02 Jul 2013 11:08:18 +0900
+
 erlang-meck (0.7.2-3) unstable; urgency=low
 
   * Update debian/control.

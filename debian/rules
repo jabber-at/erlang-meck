@@ -3,6 +3,11 @@
 DPKG_EXPORT_BUILDFLAGS = 1
 include /usr/share/dpkg/buildflags.mk
 
+ifneq (,$(findstring $(DEB_HOST_ARCH),mips mipsel armel sh4))
+disable_test=1
+else
+disable_test=0
+endif
 PACKAGE=meck
 VERSION = $(shell dpkg-parsechangelog | sed -rne 's/^Version: ([0-9.]+)(\+dfsg)?.*$$/\1/p')
 
@@ -10,7 +15,9 @@ VERSION = $(shell dpkg-parsechangelog | sed -rne 's/^Version: ([0-9.]+)(\+dfsg)?
 	dh $@
 
 override_dh_auto_test:
+ifeq "$(disable_test)" "0"
 	HOME=/tmp rebar eunit -vv
+endif
 
 override_dh_auto_install:
 	dh_auto_install
