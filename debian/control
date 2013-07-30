@@ -6,7 +6,7 @@ Priority: optional
 Standards-Version: 3.9.4
 Build-Depends: debhelper (>= 9), dpkg-dev (>= 1.16.1~), 
 	debhelper (>= 9), dpkg-dev (>= 1.16.1~), erlang-dev (>= 1:13.b.4),
-	erlang-eunit, rebar
+	erlang-eunit, erlang-dialyzer, rebar
 Homepage: https://github.com/eproxus/meck
 Vcs-Git: git://anonscm.debian.org/pkg-leofs/erlang-meck.git
 Vcs-Browser: http://anonscm.debian.org/gitweb/?p=pkg-leofs/erlang-meck.git
@@ -15,7 +15,6 @@ Package: erlang-meck
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends},
 	erlang-base-hipe | erlang-base | ${erlang-abi:Depends}, ${erlang:Depends}
-Enhances: erlang
 Description: mocking library for Erlang
  With meck you can easily mock modules in Erlang.
  You can also perform some basic validations on the mocked modules, such as
