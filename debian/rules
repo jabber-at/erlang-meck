@@ -1,14 +1,4 @@
 #!/usr/bin/make -f
 
-disable_test=0
-ifneq (,$(findstring $(DEB_HOST_ARCH),mips mipsel armel sh4))
-disable_test=1
-endif
-
 %:
 	dh $@ --buildsystem=rebar --with rebar
-
-override_dh_auto_test:
-ifeq "$(disable_test)" "0"
-	HOME=/tmp rebar eunit -vv
-endif
