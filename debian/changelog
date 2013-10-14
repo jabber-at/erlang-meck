@@ -1,6 +1,11 @@
-erlang-meck (0.8.1+dfsg-1) UNRELEASED; urgency=low
+erlang-meck (0.8.1+dfsg-1) unstable; urgency=low
 
   * New upstream release.
+  * Remove patches.
+  * Update debian/rules.
+    - Disable test. Eunit requires hamcrest library.
+  * Update debian/watch.
+    - Fix lintian warning: "debian-watch-file-should-mangle-version line 3"
 
  -- Nobuhiro Iwamatsu <iwamatsu@debian.org>  Tue, 15 Oct 2013 08:27:06 +0900
 
