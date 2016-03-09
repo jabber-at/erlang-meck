@@ -186,7 +186,7 @@ your `rebar.config` in your project root:
 ```erlang
 {deps, [
  {meck, ".*",
-  {git, "https://github.com/eproxus/meck.git", {tag, "0.8.2"}}}
+  {git, "https://github.com/eproxus/meck.git", {tag, "0.8.3"}}}
  ]}.
 ```
 
@@ -212,6 +212,38 @@ problematic to mock or not possible at all:
 * `os`
 * `crypto`
 * `compile`
+* `global`
+* `timer` (possible to mock, but used by some test frameworks, like Elixir's ExUnit)
+
+Also, a meck expectation set up for a function _f_ does not apply to the module-local invocation of _f_ within the mocked module.
+Consider the following module:
+```
+-module(test).
+-export([a/0, b/0, c/0]).
+
+a() ->
+  c().
+
+b() ->
+  ?MODULE:c().
+
+c() ->
+  original.
+```
+Note how the module-local call to `c/0` in `a/0` stays unchanged even though the expectation changes the externally visible behaviour of `c/0`:
+
+```
+3> meck:new(test, [passthrough]).
+ok
+4> meck:expect(test,c,0,changed).
+ok
+5> test:a().
+original
+6> test:b().
+changed
+6> test:c().
+changed
+```
 
 Contribute
 ----------
@@ -224,33 +256,16 @@ when developing new features or fixes for meck.
 Should you find yourself using Meck and have issues, comments or
 feedback please [create an issue here on GitHub][4].
 
-Contributors:
+Meck has been greatly improved by [many contributors]
+(https://github.com/eproxus/meck/graphs/contributors)!
 
-- Maxim Vladimirsky (@horkhe)
-- Ryan Zezeski (@rzezeski)
-- David Haglund (@daha)
-- Magnus Henoch (@legoscia)
-- Susan Potter (@mbbx6spp)
-- Andreas Amsenius (@adbl)
-- Anthony Molinaro (@djnym)
-- Matt Campbell (@xenolinguist)
-- Martynas Pumputis (@brb)
-- Shunichi Shinohara (@shino)
-- Miëtek Bak
-- Henry Nystrom
-- Ward Bekker (@wardbekker)
-- Damon Richardson
-- Christopher Meiklejohn
-- Joseph Wayne Norton (@norton)
-- Erkan Yilmaz (@Erkan-Yilmaz)
-- Joe Williams (@joewilliams)
-- Russell Brown
-- Michael Klishin (@michaelklishin)
-- Magnus Klaar
+### Donations
 
+If you or your company use Meck and find it useful, Bitcoin donations to the address `1M7pLbBpjkwxffT7kZPKhxiPGKf4eHDqtz` are greatly appreciated!
 
   [1]: https://github.com/eproxus/meck/wiki/0.8-Release-Notes
        "0.8 Release Notes"
   [2]: https://github.com/hyperthunk/hamcrest-erlang "Hamcrest for Erlang"
   [3]: https://github.com/basho/rebar "Rebar - A build tool for Erlang"
   [4]: http://github.com/eproxus/meck/issues "Meck issues"
+
