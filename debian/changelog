@@ -1,3 +1,9 @@
+erlang-meck (0.8.2+dfsg-1~bpo7+1) wheezy-backports; urgency=medium
+
+  * Rebuild for wheezy-backports.
+
+ -- Philipp Huebner <debalance@debian.org>  Tue, 14 Mar 2017 18:16:17 +0100
+
 erlang-meck (0.8.2+dfsg-1) unstable; urgency=medium
 
   * New upstream release. (Closes: #747934)
