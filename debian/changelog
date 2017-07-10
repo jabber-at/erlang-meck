@@ -1,3 +1,9 @@
+erlang-meck (0.8.7-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Nobuhiro Iwamatsu <iwamatsu@debian.org>  Mon, 10 Jul 2017 10:42:42 +0900
+
 erlang-meck (0.8.4+dfsg-1) unstable; urgency=medium
 
   * New upstream release.
