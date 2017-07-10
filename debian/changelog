@@ -1,6 +1,7 @@
 erlang-meck (0.8.7-1) unstable; urgency=medium
 
   * New upstream release.
+  * Bumped Standards-Version to 4.0.0.
 
  -- Nobuhiro Iwamatsu <iwamatsu@debian.org>  Mon, 10 Jul 2017 10:42:42 +0900
 
