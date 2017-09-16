@@ -59,11 +59,24 @@ get_current_call() ->
 %%% Internal functions
 %%%============================================================================
 
+attribute({Key, _Value}, Attrs)
+    when Key =:= vsn;
+	 Key =:= deprecated;
+	 Key =:= optional_callbacks;
+     Key =:= dialyzer ->
+    Attrs;
+attribute({Key, Value}, Attrs)
+  when (Key =:= behaviour orelse Key =:= behavior)
+       andalso is_list(Value) ->
+    lists:foldl(fun(Behavior, Acc) -> [?attribute(Key, Behavior) | Acc] end,
+		Attrs, Value);
+attribute({Key, Value}, Attrs) ->
+    [?attribute(Key, Value) | Attrs].
+
 attributes(Mod) ->
     try
-        [?attribute(Key, Val) || {Key, Val} <-
-            proplists:get_value(attributes, Mod:module_info(), []),
-            Key =/= vsn, Key =/= deprecated, Key =/= optional_callbacks]
+	lists:foldl(fun attribute/2, [],
+		    proplists:get_value(attributes, Mod:module_info(), []))
     catch
         error:undef -> []
     end.
@@ -190,8 +203,8 @@ raise(Pid, Mod, Func, Args, Class, Reason) ->
 -spec inject(Mod::atom(), Func::atom(), Args::[any()],
              meck_history:stack_trace()) ->
         NewStackTrace::meck_history:stack_trace().
-inject(_Mod, _Func, _Args, []) ->
-    [];
+inject(Mod, Func, Args, []) ->
+    [{Mod, Func, Args}];
 inject(Mod, Func, Args, [{?MODULE, exec, _AriOrArgs, _Loc}|Stack]) ->
     [{Mod, Func, Args} | Stack];
 inject(Mod, Func, Args, [{?MODULE, exec, _AriOrArgs}|Stack]) ->
